@@ -19,7 +19,7 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 ### Augmentation Scheme
 
-<img width="500" height="200" alt="audio_augmentation" src="https://github.com/user-attachments/assets/d1d5320d-09ce-48cc-afc9-ce9485fb65fa" />
+<img width="500" height="250" alt="audio_augmentation" src="https://github.com/user-attachments/assets/d1d5320d-09ce-48cc-afc9-ce9485fb65fa" />
 
 [Augmentation Scheme overview]
 
@@ -29,7 +29,7 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 ### Prompt Concatenation
 
-<img width="650" height="450" alt="prompt_2" src="https://github.com/user-attachments/assets/8c0a9eae-de3d-4bc3-91bc-0283637e6e60" />
+<img width="300" height="200" alt="prompt_2" src="https://github.com/user-attachments/assets/8c0a9eae-de3d-4bc3-91bc-0283637e6e60" />
 
 [Example of audio prompt concatenation]
 

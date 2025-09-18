@@ -11,14 +11,18 @@ We further conducted ablation studies on prompt length, position, and initializa
 p-DREAM offers a practical and privacy-conscious approach for speech-based depression assessment in low-resource environments.
 To promote reproducibility and community adoption, now we plan to release our codebase in compliance with the ethical protocols outlined in the AVEC challenges.
 
-## Our Methods
 ---
+
+## Our Methods
+
 <img width="1723" height="592" alt="Figure1_ver3" src="https://github.com/user-attachments/assets/3808131b-efc1-469d-9f0d-f5550caa6b48" />
 
 [The overview of our methods: p-DREAM]
 
-### Augmentation Scheme
 ---
+
+### Augmentation Scheme
+
 <img width="500" height="250" alt="audio_augmentation" src="https://github.com/user-attachments/assets/d1d5320d-09ce-48cc-afc9-ce9485fb65fa" />
 
 [Augmentation Scheme overview]
@@ -27,14 +31,20 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Example of a real augmentation on a real participant]
 
-### Prompt Concatenation
 ---
+
+### Prompt Concatenation
+
 <img width="300" height="200" alt="prompt_2" src="https://github.com/user-attachments/assets/8c0a9eae-de3d-4bc3-91bc-0283637e6e60" />
 
 [Example of audio prompt concatenation]
 
-### Model Reprogramming
 ---
+
+### Model Reprogramming
+
 <img width="450" height="450" alt="model_architecture_2" src="https://github.com/user-attachments/assets/385b0885-36c5-4eeb-9d04-1ceeca4eed39" />
 
 [Comparision between Fine-tuning, Linear probing, and Model Reprogramming (our method: p-DREAM)]
+
+---

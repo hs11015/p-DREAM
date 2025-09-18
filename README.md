@@ -19,7 +19,7 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [The overview of our methods: p-DREAM]
 
----
+-
 
 ### Augmentation Scheme
 
@@ -31,7 +31,7 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Example of a real augmentation on a real participant]
 
----
+-
 
 ### Prompt Concatenation
 
@@ -39,7 +39,7 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Example of audio prompt concatenation]
 
----
+-
 
 ### Model Reprogramming
 
@@ -47,4 +47,4 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Comparision between Fine-tuning, Linear probing, and Model Reprogramming (our method: p-DREAM)]
 
----
+-

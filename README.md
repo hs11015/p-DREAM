@@ -1,25 +1,62 @@
-# p-DREAM (Prompt-Driven Reprogramming Exploiting Audio Mapping)
+# Prompt-Based Model Reprogramming for Efficient Depression Detection from Speech
 
-Diagnosing depression is critical due to its profound impact on individuals and associated risks.
-Although deep learning techniques like convolutional neural networks and transformers have been employed to detect depression, they require large, labeled datasets and substantial computational resources, posing challenges in data-scarce environments.
-We introduce p-DREAM (Prompt-Driven Reprogramming Exploiting Audio Mapping), a novel and data-efficient model designed to diagnose depression from speech data alone.
-The p-DREAM combines two main strategies: data augmentation and model reprogramming. First, it utilizes audio-specific data augmentation techniques to generate a richer set of training examples.
-Next, it employs audio prompts to aid in domain adaptation. These prompts guide a frozen pre-trained transformer, which extracts meaningful features. Finally, these features are fed into a lightweight classifier for prediction.
-The p-DREAM outperforms traditional fine-tuning and linear probing methods, while requiring only a small number of trainable parameters. Evaluations on three benchmark datasets (DAIC-WoZ, E-DAIC, and AVEC 2014) demonstrate consistent improvements.
-In particular, p-DREAM achieves a leading macro F1 score of 0.7734 using only acoustic features.
-We further conducted ablation studies on prompt length, position, and initialization, confirming their importance in effective model adaptation.
-p-DREAM offers a practical and privacy-conscious approach for speech-based depression assessment in low-resource environments.
-To promote reproducibility and community adoption, now we plan to release our codebase in compliance with the ethical protocols outlined in the AVEC challenges.
+> ICASSP 2026  
+> **Efficient Depression Detection from Speech via Language-Independent Model Reprogramming**
 
 ---
 
-## Our Methods
+## 🧠 Overview
 
-<img width="1723" height="592" alt="Figure1_ver3" src="https://github.com/user-attachments/assets/3808131b-efc1-469d-9f0d-f5550caa6b48" />
+Depression diagnosis from speech is a challenging task due to:
+- limited labeled data,
+- privacy constraints,
+- and poor cross-dataset generalization.
 
-[The overview of our methods: p-DREAM]
+Most deep learning approaches rely on **full fine-tuning**, which:
+- requires large datasets,
+- introduces heavy computational cost,
+- and often overfits to dataset-specific biases.
 
--
+---
+
+### 🚀 Our Idea
+
+We propose a **prompt-based model reprogramming framework**,  
+a **parameter-efficient approach** that adapts pretrained speech models **without fine-tuning**.
+
+> ❗ Instead of learning new parameters, we **reprogram the input space** using audio prompts.
+
+---
+
+## 🔑 Key Contributions
+
+- **Prompt-based reprogramming for speech**
+  - Treat prompts as **input-level perturbations**, not trainable modules  
+- **Language-independent depression detection**
+  - Uses only **acoustic features** (no ASR / text)  
+- **Parameter-efficient adaptation**
+  - >100,000× fewer trainable parameters than fine-tuning  
+- **Strong performance under low-resource settings**  
+- **Cross-dataset robustness**  
+- **Systematic prompt design analysis (ablation study)**  
+
+---
+
+## 🏗️ Method Overview
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3808131b-efc1-469d-9f0d-f5550caa6b48" width="80%">
+</p>
+
+**Pipeline:**
+1. Audio augmentation  
+2. Prompt concatenation (**input-level reprogramming**)  
+3. Frozen pretrained encoder (e.g., HuBERT / wav2vec2)  
+4. Lightweight classifier  
+
+> **Key insight:** Prompt acts as **input-level reprogramming**, not a trainable module.
+
+---
 
 ### Augmentation Scheme
 
@@ -31,7 +68,9 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Example of a real augmentation on a real participant]
 
--
+> Audio augmentation increases diversity and improves robustness under limited data.
+
+---
 
 ### Prompt Concatenation
 
@@ -39,12 +78,142 @@ To promote reproducibility and community adoption, now we plan to release our co
 
 [Example of audio prompt concatenation]
 
--
+> Prompts are treated as **structured input signals** that steer the pretrained model.
+
+---
 
 ### Model Reprogramming
 
 <img width="450" height="450" alt="model_architecture_2" src="https://github.com/user-attachments/assets/385b0885-36c5-4eeb-9d04-1ceeca4eed39" />
 
-[Comparision between Fine-tuning, Linear probing, and Model Reprogramming (our method: p-DREAM)]
+[Comparison between Fine-tuning, Linear Probing, and Model Reprogramming (ours)]
 
--
+> Unlike fine-tuning, our approach **does not modify backbone parameters**, enabling efficient and generalizable adaptation.
+
+---
+
+## 🎯 Core Concept: Input Reprogramming
+
+Unlike conventional approaches:
+
+| Method | Strategy |
+|--------|----------|
+| Fine-tuning | Update all parameters |
+| Linear probing | Train classifier only |
+| **Ours** | **Reprogram input distribution** |
+
+> We **do not train prompts** —  
+> we use them to **steer the pretrained representation space**.
+
+---
+
+## 🎛️ Prompt Design
+
+We systematically analyze how prompt design affects performance:
+
+- Audio length  
+- Prompt length  
+- Initialization  
+- Insertion position  
+
+👉 Key finding:
+
+> **Prompt design consistently affects model behavior → not a heuristic**
+
+---
+
+## 📊 Results
+
+- Evaluated on:
+  - DAIC-WoZ  
+  - E-DAIC  
+  - AVEC 2014  
+
+- Achieves:
+  - **Macro F1: 0.7734**  
+  - using **acoustic-only input**
+
+---
+
+### 💡 Key Observations
+
+- Moderate input length yields best performance  
+- Prompt length has an optimal range  
+- Initialization significantly affects sensitivity  
+- **Simple prompts outperform complex designs**  
+
+> ❗ Minimal perturbations are sufficient to steer pretrained models
+
+---
+
+## 🔬 Why It Works
+
+We interpret prompts as:
+
+> **structured input perturbations (reprogramming signals)**
+
+Similar to:
+- input filtering in vision (e.g., Gaussian filtering)  
+- domain adaptation via input transformation  
+
+This approach **shifts the representation space** without modifying model weights.
+
+---
+
+## 🌍 Generalization
+
+We observe similar behavior in other modalities (e.g., EEG):
+
+> Prompt-based reprogramming is **not modality-specific**
+
+---
+
+## ⚡ Efficiency
+
+- Minimal trainable parameters  
+- No backbone updates  
+- Faster inference than fine-tuning  
+
+---
+
+## 🧪 Ablation Study
+
+We provide detailed analysis on:
+- prompt length  
+- audio duration  
+- initialization strategy  
+- insertion position  
+
+👉 Demonstrates:
+
+> prompt design is a **systematic factor**, not arbitrary tuning
+
+---
+
+## 🚧 Code Release
+
+Due to **ethical and privacy constraints** (AVEC protocol),  
+we are carefully preparing the public release of this repository.
+
+> Planned release includes:
+- Training and evaluation pipeline  
+- Prompt generation and integration modules  
+- Preprocessing and augmentation scripts  
+
+⚠️ Note:  
+We do **not redistribute raw audio data**.  
+Users must obtain datasets (e.g., DAIC-WoZ, E-DAIC, AVEC 2014) through official channels.
+
+---
+
+## 📜 Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{kim2026reprogramming,
+  title={Efficient Depression Detection from Speech via Language-Independent Model Reprogramming},
+  author={Kim, Hyunseo and others},
+  booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2026}
+}

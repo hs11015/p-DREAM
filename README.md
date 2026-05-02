@@ -35,7 +35,7 @@ a **parameter-efficient approach** that adapts pretrained speech models **withou
 - **Language-independent depression detection**
   - Uses only **acoustic features** (no ASR / text)  
 - **Parameter-efficient adaptation**
-  - >100,000× fewer trainable parameters than fine-tuning  
+  - more than 100,000× fewer trainable parameters than fine-tuning  
 - **Strong performance under low-resource settings**  
 - **Cross-dataset robustness**  
 - **Systematic prompt design analysis (ablation study)**  
@@ -45,13 +45,13 @@ a **parameter-efficient approach** that adapts pretrained speech models **withou
 ## 🏗️ Method Overview
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/3808131b-efc1-469d-9f0d-f5550caa6b48" width="80%">
+  <img src="https://github.com/user-attachments/assets/3808131b-efc1-469d-9f0d-f5550caa6b48" width="90%">
 </p>
 
 **Pipeline:**
 1. Audio augmentation  
 2. Prompt concatenation (**input-level reprogramming**)  
-3. Frozen pretrained encoder (e.g., HuBERT / wav2vec2)  
+3. Frozen pretrained encoder (e.g., AST / HuBERT / Whisper / wav2vec2)  
 4. Lightweight classifier  
 
 > **Key insight:** Prompt acts as **input-level reprogramming**, not a trainable module.
@@ -102,8 +102,8 @@ Unlike conventional approaches:
 | Linear probing | Train classifier only |
 | **Ours** | **Reprogram input distribution** |
 
-> We **do not train prompts** —  
-> we use them to **steer the pretrained representation space**.
+> We **do not train prompts**.
+> We use them to **steer the pretrained representation space**.
 
 ---
 
@@ -126,7 +126,6 @@ We systematically analyze how prompt design affects performance:
 
 - Evaluated on:
   - DAIC-WoZ  
-  - E-DAIC  
   - AVEC 2014  
 
 - Achieves:
@@ -165,6 +164,7 @@ This approach **shifts the representation space** without modifying model weight
 We observe similar behavior in other modalities (e.g., EEG):
 
 > Prompt-based reprogramming is **not modality-specific**
+> PEARL: Prompt-Based EEG Adaptation via Resource-Efficient Learning for Generalizable Brain-Computer Interface (ICASSP 2026, accept)
 
 ---
 
@@ -202,7 +202,7 @@ we are carefully preparing the public release of this repository.
 
 ⚠️ Note:  
 We do **not redistribute raw audio data**.  
-Users must obtain datasets (e.g., DAIC-WoZ, E-DAIC, AVEC 2014) through official channels.
+Users must obtain datasets (e.g., DAIC-WoZ, AVEC 2014) through official channels.
 
 ---
 
@@ -213,7 +213,7 @@ If you find this work useful, please cite:
 ```bibtex
 @inproceedings{kim2026reprogramming,
   title={Efficient Depression Detection from Speech via Language-Independent Model Reprogramming},
-  author={Kim, Hyunseo and others},
+  author={Hyunseo Kim, Longbin Jin, and Eun Yi Kim},
   booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year={2026}
 }

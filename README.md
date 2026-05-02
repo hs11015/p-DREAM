@@ -222,7 +222,7 @@ After downloading, place the file in the following directory:
 
 ```bash
 project/pretrained_models/audioset_10_10_0.4593.pth
-
+```
 ---
 
 ## 📜 Citation
@@ -236,3 +236,4 @@ If you find this work useful, please cite:
   booktitle={Proceedings of the IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year={2026}
 }
+```

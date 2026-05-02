@@ -206,6 +206,25 @@ Users must obtain datasets (e.g., DAIC-WoZ, AVEC 2014) through official channels
 
 ---
 
+## ⚠️ Pretrained Model
+
+Due to GitHub storage limitations, we do not provide pretrained weights directly in this repository.
+
+Please download the pretrained model from the official source:
+
+- **AudioSet pretrained checkpoint**: `audioset_10_10_0.4593.pth`
+
+You can typically find this checkpoint via:
+- the original model repository (e.g., PANNs / AudioSet pretrained models)
+- or public model hosting platforms
+
+After downloading, place the file in the following directory:
+
+```bash
+project/pretrained_models/audioset_10_10_0.4593.pth
+
+---
+
 ## 📜 Citation
 
 If you find this work useful, please cite:

@@ -1,0 +1,6 @@
+../../download_EDAIC/303_P/303_AUDIO.wav
+../../download_EDAIC/306_P/306_AUDIO.wav
+../../download_EDAIC/346_P/346_AUDIO.wav
+../../download_EDAIC/361_P/361_AUDIO.wav
+../../download_EDAIC/624_P/624_AUDIO.wav
+../../download_EDAIC/680_P/680_AUDIO.wav
